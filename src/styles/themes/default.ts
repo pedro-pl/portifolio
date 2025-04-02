@@ -5,6 +5,9 @@ export const darkTheme = {
     'sub-background': '#212529',
   
     'text': '#D8F3DC',
+    'text-light': '#D8F3DC',
+
+    'toggle': '#40916C'
 }
 
 export const lightTheme = {
@@ -14,4 +17,7 @@ export const lightTheme = {
     'sub-background': '#212529',
 
     'text': '#333333',
+    'text-light': '#D8F3DC',
+
+    'toggle': '#1B4332'
 }

@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { Card, Container, Header, LineDivisor, Toggle, ToggleTheme } from './styles';
+import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, CardProject, ToggleContainer, Toggle, Footer } from './styles';
 
 import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
-import { FaMoon } from "react-icons/fa";
+import { FaMoon, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { IoLogoJavascript, IoLogoReact, IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
+
+import TimerPomodoro from '../assets/timer-pomodoro.png';
 
 import { aboutEn, aboutPtBr } from '../mocks/texts';
 
@@ -47,19 +50,77 @@ export function Home({changeTheme}: themeProps){
                 <h2>{about === aboutPtBr ? 'SOBRE MIM' : 'ABOUT ME'}</h2>
 
                 <p>{about}</p>
-
-                <Toggle isOn={isOn} onClick={() => ChangeLanguageAbout()}>
-                    <p>{about === aboutPtBr ? 'En' : 'Pt'}</p>
-                </Toggle>
             </Card>
 
             <LineDivisor />
 
-            <ToggleTheme isDark={theme === 'dark' ? true : false} onClick={() => changeColorTheme()}>
-                {
-                    theme === 'dark' ? <FiSun size={20}/> : <FaMoon size={20}/>
-                }
-            </ToggleTheme>
+            <Card>
+                <h2>{about === aboutPtBr ? 'PROJETOS' : 'PROJECTS'}</h2>
+
+                <ProjectContainer>
+                    <FaArrowLeft />
+                    <CardProject>
+                        <h3>TIMER POMODORO</h3>
+                        <img src={TimerPomodoro} />
+                        <p>
+                            Cronômetro para gerenciar tarefas através do método pomodor. Projeto criado através do curso sobre React da Rocketseat.
+                        </p>
+                    </CardProject>
+                    <FaArrowRight/>
+                </ProjectContainer>
+            </Card>
+
+            <LineDivisor />
+            
+            <Card>
+                <h2>{about === aboutPtBr ? 'CONHECIMENTOS' : 'KNOWLEDGE'}</h2>
+
+                <CardKnowledge>
+                    <div>
+                        <IoLogoJavascript size={65}/>
+                        <h3>JavaScript</h3>
+                    </div>
+
+                    <div>
+                        <IoLogoReact size={65}/>
+                        <h3>React</h3>
+                    </div>
+                </CardKnowledge>
+            </Card>
+
+            <LineDivisor />
+
+            <Card>
+                <h2>{about === aboutPtBr ? 'CONTATOS' : 'CONTACTS'}</h2>
+
+                <a href='mailto:lucaspires2322@gmail.com'><IoMailOutline size={22}/> lucaspires2322@gmail.com</a>
+                <a href='https://api.whatsapp.com/send/?phone=5511947254880' target="_blank"><IoLogoWhatsapp size={22} /> (11) 94725-4880</a>
+            </Card>
+
+            <LineDivisor />
+
+            <Footer>
+                <div>
+                    <p>© 2025 {about === aboutPtBr ? 'Por' : 'By'} Pedro Lucas.</p>
+                </div>
+
+                <div>
+                    <a href="https://www.linkedin.com/in/pedro-lucas-74745b21a/" target="_blank"><IoLogoLinkedin size={24}/></a>
+                    <a href="https://github.com/pedro-pl" target="_blank"><IoLogoGithub size={24}/></a>
+                </div>
+            </Footer>
+
+            <ToggleContainer>
+                <Toggle isOn={isOn} onClick={() => ChangeLanguageAbout()}>
+                    <p>{about === aboutPtBr ? 'En' : 'Pt'}</p>
+                </Toggle>
+
+                <Toggle isOn={theme === 'dark' ? true : false} onClick={() => changeColorTheme()}>
+                    {
+                        theme === 'dark' ? <FiSun size={20}/> : <FaMoon size={20}/>
+                    }
+                </Toggle>
+            </ToggleContainer>
         </Container>
     )
 }
