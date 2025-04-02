@@ -5,6 +5,7 @@ import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
 import { FaMoon, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoReact, IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
+import { LuMove } from "react-icons/lu";
 
 import Draggable from "react-draggable";
 
@@ -24,7 +25,7 @@ export function Home({changeTheme}: themeProps){
 
     const draggableRef = useRef<HTMLDivElement>(null);
 
-    function changeColorTheme(){
+    function handleChangeColorTheme(){
         if(theme === 'dark'){
             setTheme('light')
         }else{
@@ -34,7 +35,7 @@ export function Home({changeTheme}: themeProps){
         changeTheme(theme)
     }
      
-    function ChangeLanguageAbout(){
+    function handleChangeLanguageAbout(){
         if(about === aboutPtBr){
             setAbout(aboutEn)
             setIsOn(!isOn)
@@ -138,13 +139,15 @@ export function Home({changeTheme}: themeProps){
 
             <Draggable nodeRef={draggableRef as React.RefObject<HTMLElement>} bounds="body">
                 <ToggleContainer ref={draggableRef}>
-                    <Toggle $isOn={isOn} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(ChangeLanguageAbout)} >
+                    <span><LuMove /></span>
+
+                    <Toggle $isOn={isOn} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(handleChangeLanguageAbout)} >
                         <p>{about === aboutPtBr ? "EN" : "PT"}</p>
                     </Toggle>
 
-                <Toggle $isOn={theme === 'dark'} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(changeColorTheme)} >
-                    {theme === "dark" ? <FiSun size={20} /> : <FaMoon size={20} />}
-                </Toggle>
+                    <Toggle $isOn={theme === 'dark'} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(handleChangeColorTheme)} >
+                        {theme === "dark" ? <FiSun size={20} /> : <FaMoon size={20} />}
+                    </Toggle>
                 </ToggleContainer>
             </Draggable>
         </Container>

@@ -26,6 +26,19 @@ export const ToggleContainer = styled.div`
     border: 1px solid ${props => props.theme['sub-background']};
     border-radius:25px;
     cursor: grab;
+
+    span {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: ${props => props.theme['text']};
+        top: -8px;
+        right: -8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
 interface ToggleProps {
@@ -58,7 +71,7 @@ export const Toggle = styled.button<ToggleProps>`
     svg {
         font-weight: 600;
         color: ${props => props.theme['background-card']};
-        margin-left: ${({ $isOn }) => ($isOn ? '40px' : '10px')};
+        margin-left: ${({ $isOn }) => ($isOn ? '32px' : '0px')};
     }
 
     p{
