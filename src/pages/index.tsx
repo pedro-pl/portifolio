@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, CardProject, ToggleContainer, Toggle, Footer } from './styles';
 
 import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
 import { FaMoon, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoReact, IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
+
+import Draggable from "react-draggable";
 
 import TimerPomodoro from '../assets/timer-pomodoro.png';
 
@@ -19,6 +21,8 @@ export function Home({changeTheme}: themeProps){
     const [about, setAbout] = useState(aboutPtBr)
     const [isOn, setIsOn] = useState(false);
 
+    const draggableRef = useRef<HTMLDivElement>(null)
+
     function changeColorTheme(){
         if(theme === 'dark'){
             setTheme('light')
@@ -30,6 +34,8 @@ export function Home({changeTheme}: themeProps){
     }
      
     function ChangeLanguageAbout(){
+        console.log("hello")
+
         if(about === aboutPtBr){
             setAbout(aboutEn)
             setIsOn(!isOn)
@@ -110,17 +116,17 @@ export function Home({changeTheme}: themeProps){
                 </div>
             </Footer>
 
-            <ToggleContainer>
-                <Toggle isOn={isOn} onClick={() => ChangeLanguageAbout()}>
-                    <p>{about === aboutPtBr ? 'En' : 'Pt'}</p>
-                </Toggle>
+            <Draggable nodeRef={draggableRef as React.RefObject<HTMLElement>} bounds="body">
+                <ToggleContainer ref={draggableRef}>
+                    <Toggle $isOn={isOn} onClick={() => {ChangeLanguageAbout()}}>
+                        <p>{about === aboutPtBr ? "En" : "Pt"}</p>
+                    </Toggle>
 
-                <Toggle isOn={theme === 'dark' ? true : false} onClick={() => changeColorTheme()}>
-                    {
-                        theme === 'dark' ? <FiSun size={20}/> : <FaMoon size={20}/>
-                    }
-                </Toggle>
-            </ToggleContainer>
+                    <Toggle $isOn={theme === "dark"} onClick={() => changeColorTheme()}>
+                        {theme === "dark" ? <FiSun size={20} /> : <FaMoon size={20} />}
+                    </Toggle>
+                </ToggleContainer>
+            </Draggable>
         </Container>
     )
 }

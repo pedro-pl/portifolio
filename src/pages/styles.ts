@@ -18,12 +18,20 @@ export const ToggleContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
-    top: 1rem;
+    bottom: 1rem;
     left: 3%;
     align-self: end;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border: 1px solid ${props => props.theme['sub-background']};
+    border-radius:25px;
 `
 
-export const Toggle = styled.div<{ isOn: Boolean }>`
+interface ToggleProps {
+    $isOn: boolean;
+}
+
+export const Toggle = styled.button<ToggleProps>`
     width: 68px;
     height: 36px;
     background: ${props => props.theme['text']};
@@ -40,32 +48,28 @@ export const Toggle = styled.div<{ isOn: Boolean }>`
         height: 24px;
         background: ${props => props.theme['background']};
         border-radius: 50%;
-        top: 22%;
-        left: ${({ isOn }) => (isOn ? '38px' : '8px')};
+        top: 25%;
+        left: ${({ $isOn }) => ($isOn ? '48px' : '16px')};
         transform: translateY(-50%);
         transition: left 0.3s ease;
-
-        &:last-child{
-            top: 50%;
-        }
     }
 
     svg {
         font-weight: 600;
         color: ${props => props.theme['background-card']};
-        margin-left: ${({ isOn }) => (isOn ? '40px' : '10px')};
+        margin-left: ${({ $isOn }) => ($isOn ? '40px' : '10px')};
     }
 
     p{
         font-weight: 600;
         color: ${props => props.theme['background-card']};
-        margin-left: ${({ isOn }) => (!isOn ? '35px' : '10px')};
+        margin-left: ${({ $isOn }) => (!$isOn ? '35px' : '10px')};
     }
 
     &:last-child{
         &:before{
-            top: 78%;
-            left: ${({ isOn }) => (!isOn ? '38px' : '8px')};
+            top: 74.5%;
+            left: ${({ $isOn }) => (!$isOn ? '48px' : '16px')};
         }
     }
 `
