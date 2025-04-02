@@ -13,7 +13,7 @@ export const Container = styled.div`
 `
 
 export const ToggleContainer = styled.div`
-    height: 90px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,6 +25,7 @@ export const ToggleContainer = styled.div`
     padding: 10px;
     border: 1px solid ${props => props.theme['sub-background']};
     border-radius:25px;
+    cursor: grab;
 `
 
 interface ToggleProps {
@@ -48,7 +49,7 @@ export const Toggle = styled.button<ToggleProps>`
         height: 24px;
         background: ${props => props.theme['background']};
         border-radius: 50%;
-        top: 25%;
+        top: 28%;
         left: ${({ $isOn }) => ($isOn ? '48px' : '16px')};
         transform: translateY(-50%);
         transition: left 0.3s ease;
@@ -63,12 +64,12 @@ export const Toggle = styled.button<ToggleProps>`
     p{
         font-weight: 600;
         color: ${props => props.theme['background-card']};
-        margin-left: ${({ $isOn }) => (!$isOn ? '35px' : '10px')};
+        margin-left: ${({ $isOn }) => (!$isOn ? '30px' : '5px')};
     }
 
     &:last-child{
         &:before{
-            top: 74.5%;
+            top: 72%;
             left: ${({ $isOn }) => (!$isOn ? '48px' : '16px')};
         }
     }

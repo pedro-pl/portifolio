@@ -20,8 +20,9 @@ export function Home({changeTheme}: themeProps){
     const [theme, setTheme] = useState('dark')
     const [about, setAbout] = useState(aboutPtBr)
     const [isOn, setIsOn] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
 
-    const draggableRef = useRef<HTMLDivElement>(null)
+    const draggableRef = useRef<HTMLDivElement>(null);
 
     function changeColorTheme(){
         if(theme === 'dark'){
@@ -34,8 +35,6 @@ export function Home({changeTheme}: themeProps){
     }
      
     function ChangeLanguageAbout(){
-        console.log("hello")
-
         if(about === aboutPtBr){
             setAbout(aboutEn)
             setIsOn(!isOn)
@@ -44,6 +43,27 @@ export function Home({changeTheme}: themeProps){
             setIsOn(!isOn)
         }
     }
+
+    let pressTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const handlePointerDown = () => {
+        pressTimer = setTimeout(() => {
+            setIsDragging(true);
+        }, 150);
+    };
+    
+    const handlePointerUp = (callback: () => void) => {
+        if (pressTimer) {
+            clearTimeout(pressTimer);
+            pressTimer = null;
+        }
+    
+        if (!isDragging) {
+            callback();
+        }
+    
+        setIsDragging(false);
+    };
 
     return (
         <Container>
@@ -118,13 +138,13 @@ export function Home({changeTheme}: themeProps){
 
             <Draggable nodeRef={draggableRef as React.RefObject<HTMLElement>} bounds="body">
                 <ToggleContainer ref={draggableRef}>
-                    <Toggle $isOn={isOn} onClick={() => {ChangeLanguageAbout()}}>
-                        <p>{about === aboutPtBr ? "En" : "Pt"}</p>
+                    <Toggle $isOn={isOn} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(ChangeLanguageAbout)} >
+                        <p>{about === aboutPtBr ? "EN" : "PT"}</p>
                     </Toggle>
 
-                    <Toggle $isOn={theme === "dark"} onClick={() => changeColorTheme()}>
-                        {theme === "dark" ? <FiSun size={20} /> : <FaMoon size={20} />}
-                    </Toggle>
+                <Toggle $isOn={theme === 'dark'} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(changeColorTheme)} >
+                    {theme === "dark" ? <FiSun size={20} /> : <FaMoon size={20} />}
+                </Toggle>
                 </ToggleContainer>
             </Draggable>
         </Container>
