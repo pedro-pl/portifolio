@@ -47,13 +47,13 @@ export function Home({changeTheme}: themeProps){
 
     let pressTimer: ReturnType<typeof setTimeout> | null = null;
 
-    const handlePointerDown = () => {
+    function handlePointerDown(){
         pressTimer = setTimeout(() => {
             setIsDragging(true);
         }, 150);
     };
     
-    const handlePointerUp = (callback: () => void) => {
+    function handlePointerUp(callback: () => void){
         if (pressTimer) {
             clearTimeout(pressTimer);
             pressTimer = null;
@@ -138,7 +138,7 @@ export function Home({changeTheme}: themeProps){
             </Footer>
 
             <Draggable nodeRef={draggableRef as React.RefObject<HTMLElement>} bounds="body">
-                <ToggleContainer ref={draggableRef}>
+                <ToggleContainer ref={draggableRef}  $isDark={theme === 'dark' ? true : false}>
                     <span><LuMove /></span>
 
                     <Toggle $isOn={isOn} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(handleChangeLanguageAbout)} >

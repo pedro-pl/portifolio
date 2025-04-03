@@ -12,7 +12,11 @@ export const Container = styled.div`
     gap: 1rem;
 `
 
-export const ToggleContainer = styled.div`
+interface SpanProps {
+    $isDark: boolean;
+}
+
+export const ToggleContainer = styled.div<SpanProps>`
     height: 80px;
     display: flex;
     flex-direction: column;
@@ -23,7 +27,7 @@ export const ToggleContainer = styled.div`
     align-self: end;
     backdrop-filter: blur(10px);
     padding: 10px;
-    border: 1px solid ${props => props.theme['sub-background']};
+    border: 1.5px solid ${props => props.theme['sub-background']};
     border-radius:25px;
     cursor: grab;
 
@@ -33,11 +37,16 @@ export const ToggleContainer = styled.div`
         height: 24px;
         border-radius: 50%;
         background: ${props => props.theme['text']};
-        top: -8px;
-        right: -8px;
+        top: -9px;
+        right: -9px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 1.5px solid ${props => props.theme['sub-background']};        
+
+        svg {
+            color: ${(props)=> (props.theme[props.$isDark ? 'sub-background' : 'text-light'])};
+        }
     }
 `
 
@@ -94,6 +103,7 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     h3 {
         color: ${props => props.theme['text']};
