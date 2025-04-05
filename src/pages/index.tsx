@@ -4,7 +4,7 @@ import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, 
 import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
 import { FaMoon, FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { IoLogoJavascript, IoLogoReact, IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
+import { IoLogoReact, IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
 import { LuMove } from "react-icons/lu";
 
 import Draggable from "react-draggable";
