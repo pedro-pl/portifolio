@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, CardProject, ToggleContainer, Toggle, Footer } from './styles';
+import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, CardProject, ToggleContainer, Toggle, Footer, CardSkill, ContainerSkills } from './styles';
 
 import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
@@ -9,9 +9,9 @@ import { LuMove } from "react-icons/lu";
 
 import Draggable from "react-draggable";
 
-import TimerPomodoro from '../assets/timer-pomodoro.png';
-
 import { aboutEn, aboutPtBr } from '../mocks/texts';
+import { projects } from '../mocks/projects';
+import { skills } from '../mocks/skills';
 
 interface themeProps {
     changeTheme: (theme: string) => void
@@ -22,6 +22,8 @@ export function Home({changeTheme}: themeProps){
     const [about, setAbout] = useState(aboutPtBr)
     const [isOn, setIsOn] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
+    const [currentProject, setCurrentProject] = useState(1);
+    const [previousProject, setPreviousProject] = useState(0);
 
     const draggableRef = useRef<HTMLDivElement>(null);
 
@@ -66,6 +68,21 @@ export function Home({changeTheme}: themeProps){
         setIsDragging(false);
     };
 
+    function handleNextProject(){
+        console.log(projects.length)
+        if(currentProject < projects.length){
+            setCurrentProject(currentProject + 1)
+            setPreviousProject(previousProject + 1)
+        }
+    }
+
+    function handlePreviousProject(){
+        if(previousProject > 0){
+            setCurrentProject(currentProject - 1)
+            setPreviousProject(previousProject - 1)
+        }
+    }
+
     return (
         <Container>
             <Header>
@@ -85,15 +102,32 @@ export function Home({changeTheme}: themeProps){
                 <h2>{about === aboutPtBr ? 'PROJETOS' : 'PROJECTS'}</h2>
 
                 <ProjectContainer>
-                    <FaArrowLeft />
-                    <CardProject>
-                        <h3>TIMER POMODORO</h3>
-                        <img src={TimerPomodoro} />
-                        <p>
-                            Cronômetro para gerenciar tarefas através do método pomodor. Projeto criado através do curso sobre React da Rocketseat.
-                        </p>
-                    </CardProject>
-                    <FaArrowRight/>
+                    <FaArrowLeft onClick={() => handlePreviousProject()}/>
+                        {
+                            projects.slice(previousProject, currentProject).map((project) => {
+                                return(
+                                    <CardProject key={project.id}>
+                                        <h3>{project.name}</h3>
+                                        <img src={project.img} />
+                                        <ContainerSkills>
+                                            {
+                                                project.skills.map((skill) => {
+                                                    return (
+                                                        <CardSkill key={skill}>
+                                                            <p>{skill}</p>
+                                                        </CardSkill>
+                                                    )
+                                                })
+                                            }
+                                        </ContainerSkills>
+                                        <p>
+                                            {about === aboutPtBr ? project.descriptionPt : project.descriptionEn}
+                                        </p>
+                                    </CardProject>
+                                )
+                            })
+                        }
+                    <FaArrowRight onClick={() => handleNextProject()}/>
                 </ProjectContainer>
             </Card>
 
@@ -103,11 +137,16 @@ export function Home({changeTheme}: themeProps){
                 <h2>{about === aboutPtBr ? 'CONHECIMENTOS' : 'KNOWLEDGE'}</h2>
 
                 <CardKnowledge>
-                    <div>
-                        <IoLogoJavascript size={65}/>
-                        <h3>JavaScript</h3>
-                    </div>
-
+                    {
+                        skills.map((skill) => {
+                            return(
+                                <div>
+                                    <skill.icon size={65}/>
+                                    <h3>{skill.name}</h3>
+                                </div>
+                            )
+                        })
+                    }
                     <div>
                         <IoLogoReact size={65}/>
                         <h3>React</h3>

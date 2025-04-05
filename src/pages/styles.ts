@@ -45,7 +45,7 @@ export const ToggleContainer = styled.div<SpanProps>`
         border: 1.5px solid ${props => props.theme['sub-background']};        
 
         svg {
-            color: ${(props)=> (props.theme[props.$isDark ? 'sub-background' : 'text-light'])};
+            color: ${(props) => (props.theme[props.$isDark ? 'sub-background' : 'text-light'])};
         }
     }
 `
@@ -145,6 +145,7 @@ export const Card = styled.div`
         color: ${props => props.theme['text']};
         font-weight: 600;
         font-size: 0.87rem;
+        line-height: 1.2rem;
     }
 
     img {
@@ -204,22 +205,44 @@ export const CardProject = styled.div`
 
     p {
         margin: 0;
+        line-height: 1.2rem;
         color: ${props => props.theme['text-light']};
     }
 `
 
+export const ContainerSkills = styled.div`
+overflow-y: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+`
+
+export const CardSkill = styled.div`
+    padding: 5px 10px;
+    background: #40916C;
+    color: ${props => props.theme['text-light']};
+    border-radius: 12px;
+    align-self: flex-start;
+    
+    p {
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+`
+
 export const CardKnowledge = styled.div`
-    width: 90%;
+    width: 80%;
     height: 30vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow-x: auto;
-    gap: 1rem;
     background: ${props => props.theme['sub-background']};
-    padding: 10px;
+    padding: 20px;
     border-radius: 6px;
     margin-top: 1rem;
+    gap: 1rem;
 
     div{
         width: 6rem;
@@ -232,13 +255,27 @@ export const CardKnowledge = styled.div`
         background: ${props => props.theme['text-light']};
         border-radius: 6px;
 
+        div {
+            width: 40%;
+            height: 2px;
+            background-color: ${(props) => props.theme['sub-background']};
+            padding: 0;
+            margin: 0.5rem 0 0 0;
+        }
+
         svg {
             color: ${props => props.theme['sub-background']};
         }
 
         h3 {
-            margin: 0;
+            margin: 0.5rem 0 0 0;
             color: ${props => props.theme['sub-background']};
+            border: 2px solid #333;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 2px 6px;
+            border-radius: 6px;
         }
     }
 `
