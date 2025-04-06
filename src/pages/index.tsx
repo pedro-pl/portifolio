@@ -1,17 +1,17 @@
 import { useState, useRef } from 'react';
-import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, CardProject, ToggleContainer, Toggle, Footer, CardSkill, ContainerSkills } from './styles';
+import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, ToggleContainer, Toggle, Footer } from './styles';
 
 import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
-import { FaMoon, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
 import { IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
 import { LuMove } from "react-icons/lu";
 
 import Draggable from "react-draggable";
 
 import { aboutEn, aboutPtBr } from '../mocks/texts';
-import { projects } from '../mocks/projects';
 import { skills } from '../mocks/skills';
+import { ProjectCarousel } from '../components/Carrousel';
 
 interface themeProps {
     changeTheme: (theme: string) => void
@@ -22,8 +22,6 @@ export function Home({changeTheme}: themeProps){
     const [about, setAbout] = useState(aboutPtBr)
     const [isOn, setIsOn] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
-    const [currentProject, setCurrentProject] = useState(1);
-    const [previousProject, setPreviousProject] = useState(0);
 
     const draggableRef = useRef<HTMLDivElement>(null);
 
@@ -68,21 +66,6 @@ export function Home({changeTheme}: themeProps){
         setIsDragging(false);
     };
 
-    function handleNextProject(){
-        console.log(projects.length)
-        if(currentProject < projects.length){
-            setCurrentProject(currentProject + 1)
-            setPreviousProject(previousProject + 1)
-        }
-    }
-
-    function handlePreviousProject(){
-        if(previousProject > 0){
-            setCurrentProject(currentProject - 1)
-            setPreviousProject(previousProject - 1)
-        }
-    }
-
     return (
         <Container>
             <Header>
@@ -100,35 +83,7 @@ export function Home({changeTheme}: themeProps){
 
             <Card>
                 <h2>{about === aboutPtBr ? 'PROJETOS' : 'PROJECTS'}</h2>
-
-                <ProjectContainer>
-                    <FaArrowLeft onClick={() => handlePreviousProject()}/>
-                        {
-                            projects.slice(previousProject, currentProject).map((project) => {
-                                return(
-                                    <CardProject key={project.id}>
-                                        <h3>{project.name}</h3>
-                                        <img src={project.img} />
-                                        <ContainerSkills>
-                                            {
-                                                project.skills.map((skill) => {
-                                                    return (
-                                                        <CardSkill key={skill}>
-                                                            <p>{skill}</p>
-                                                        </CardSkill>
-                                                    )
-                                                })
-                                            }
-                                        </ContainerSkills>
-                                        <p>
-                                            {about === aboutPtBr ? project.descriptionPt : project.descriptionEn}
-                                        </p>
-                                    </CardProject>
-                                )
-                            })
-                        }
-                    <FaArrowRight onClick={() => handleNextProject()}/>
-                </ProjectContainer>
+                <ProjectCarousel language={about === aboutPtBr ? "pt" : "en"}/>
             </Card>
 
             <LineDivisor />
@@ -142,7 +97,7 @@ export function Home({changeTheme}: themeProps){
                             return(
                                 <div key={skill.id}>
                                     <skill.icon size={65}/>
-                                    <h3>{skill.name}</h3>
+                                    <h4>{skill.name}</h4>
                                 </div>
                             )
                         })

@@ -4,20 +4,21 @@ import ToDoList from '../../assets/to-do-list.png';
 
 export const projects = [
     {
-        id: 1,
-        name: "IGNITE FEED",
+        id: 0,
+        name: "TIMER POMODORO",
         skills: [
             "React",
-            "HTML",
+            "TypeScript",
             "JavaScript",
+            "Styled Components",
             "CSS"
         ],
-        img: IgniteFeed,
-        descriptionPt: "Projeto feito através do curso de introdução ao React pela Rocketseat. Projeto criado com o intuito de por em prática conhecimentos fundamentais para o desenvolvimento utilizando React.",
-        descriptionEn: "Project built through Rocketseat's introductory React course. Created with the goal of putting into practice fundamental knowledge for development using React."
+        img: TimerPomodoro,
+        descriptionPt: "Cronômetro para gerenciar tarefas através do método pomodor. Projeto criado através do curso sobre React da Rocketseat.",
+        descriptionEn: "Timer to manage tasks using the Pomodoro technique. Project created through Rocketseat's React course."
     },
     {
-        id: 2,
+        id: 1,
         name: "TO DO LIST",
         skills: [
             "React",
@@ -30,17 +31,16 @@ export const projects = [
         descriptionEn: "This project is a To-do List application developed using React. It allows users to create, delete, and mark tasks as completed. It also includes state management with React Hooks."
     },
     {
-        id: 3,
-        name: "TIMER POMODORO",
+        id: 2,
+        name: "IGNITE FEED",
         skills: [
             "React",
-            "TypeScript",
+            "HTML",
             "JavaScript",
-            "Styled Components",
             "CSS"
         ],
-        img: TimerPomodoro,
-        descriptionPt: "Cronômetro para gerenciar tarefas através do método pomodor. Projeto criado através do curso sobre React da Rocketseat.",
-        descriptionEn: "Timer to manage tasks using the Pomodoro technique. Project created through Rocketseat's React course."
+        img: IgniteFeed,
+        descriptionPt: "Projeto feito através do curso de introdução ao React pela Rocketseat. Projeto criado com o intuito de por em prática conhecimentos fundamentais para o desenvolvimento utilizando React.",
+        descriptionEn: "Project built through Rocketseat's introductory React course. Created with the goal of putting into practice fundamental knowledge for development using React."
     }
 ]

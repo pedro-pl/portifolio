@@ -25,7 +25,7 @@ export const ToggleContainer = styled.div<SpanProps>`
     bottom: 1rem;
     left: 3%;
     align-self: end;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
     padding: 10px;
     border: 1.5px solid ${props => props.theme['sub-background']};
     border-radius:25px;
@@ -106,12 +106,12 @@ export const Header = styled.header`
     position: relative;
 
     h3 {
-        color: ${props => props.theme['text']};
+        color: ${props => props.theme['text-light']};
         font-weight: 800;
     }
 
     svg {
-        color: ${props => props.theme['text']};
+        color: ${props => props.theme['text-light']};
     }
 `
 
@@ -183,8 +183,14 @@ export const ProjectContainer = styled.div`
     }
 `
 
-export const CardProject = styled.div`
+export const ContainerListProjects = styled.div`
+    display: flex;
     width: 70%;
+    overflow-x: auto;
+`
+
+export const CardProject = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,7 +217,7 @@ export const CardProject = styled.div`
 `
 
 export const ContainerSkills = styled.div`
-overflow-y: hidden;
+    overflow-y: auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -245,7 +251,7 @@ export const CardKnowledge = styled.div`
     gap: 1rem;
 
     div{
-        width: 35%;
+        width: 33%;
         height: 6rem;
         padding: 1rem;
         display: flex;
@@ -267,7 +273,7 @@ export const CardKnowledge = styled.div`
             color: ${props => props.theme['sub-background']};
         }
 
-        h3 {
+        h4 {
             margin: 0.5rem 0 0 0;
             color: ${props => props.theme['text-light']};
             background: ${props => props.theme['sub-background']};
@@ -298,11 +304,11 @@ export const Footer = styled.footer`
     }
 
     p {
-        color: ${props => props.theme['text']};
+        color: ${props => props.theme['text-light']};
     }
 
     a {
         text-decoration: none;
-        color: ${props => props.theme['text']};
+        color: ${props => props.theme['text-light']};
     }
 `
