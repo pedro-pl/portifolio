@@ -140,17 +140,13 @@ export function Home({changeTheme}: themeProps){
                     {
                         skills.map((skill) => {
                             return(
-                                <div>
+                                <div key={skill.id}>
                                     <skill.icon size={65}/>
                                     <h3>{skill.name}</h3>
                                 </div>
                             )
                         })
                     }
-                    <div>
-                        <IoLogoReact size={65}/>
-                        <h3>React</h3>
-                    </div>
                 </CardKnowledge>
             </Card>
 

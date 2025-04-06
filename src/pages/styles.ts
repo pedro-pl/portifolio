@@ -236,7 +236,7 @@ export const CardKnowledge = styled.div`
     height: 30vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     overflow-x: auto;
     background: ${props => props.theme['sub-background']};
     padding: 20px;
@@ -245,7 +245,7 @@ export const CardKnowledge = styled.div`
     gap: 1rem;
 
     div{
-        width: 6rem;
+        width: 35%;
         height: 6rem;
         padding: 1rem;
         display: flex;
@@ -258,7 +258,7 @@ export const CardKnowledge = styled.div`
         div {
             width: 40%;
             height: 2px;
-            background-color: ${(props) => props.theme['sub-background']};
+            background: ${(props) => props.theme['sub-background']};
             padding: 0;
             margin: 0.5rem 0 0 0;
         }
@@ -269,7 +269,8 @@ export const CardKnowledge = styled.div`
 
         h3 {
             margin: 0.5rem 0 0 0;
-            color: ${props => props.theme['sub-background']};
+            color: ${props => props.theme['text-light']};
+            background: ${props => props.theme['sub-background']};
             border: 2px solid #333;
             width: 100%;
             display: flex;
