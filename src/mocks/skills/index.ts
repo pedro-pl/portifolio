@@ -11,57 +11,57 @@ type Skill = {
 
 export const skills: Skill[] = [
     {
-        id: 1,
+        id: 0,
         name: "React",
         icon: IoLogoReact,
     },
     {
-        id: 2,
+        id: 1,
         name: "Typescript",
         icon: SiTypescript
     },
     {
-        id: 3,
+        id: 2,
         name: "JavaScript",
         icon: IoLogoJavascript
     },
     {
-        id: 4,
+        id: 3,
         name: "HTML",
         icon: IoLogoHtml5
     },
     {
-        id: 5,
+        id: 4,
         name: "CSS",
         icon: IoLogoCss3,
     },
     {
-        id: 6,
+        id: 5,
         name: "Scrum",
         icon: DiScrum
     },
     {
-        id: 7,
+        id: 6,
         name: "My Sql",
         icon: SiMysql
     },
     {
-        id: 8,
+        id: 7,
         name: "Node.js",
         icon: IoLogoNodejs
     },
     {
-        id: 9,
+        id: 8,
         name: "GitHub",
         icon: IoLogoGithub
     },
     {
-        id: 10,
+        id: 9,
         name: "Java",
         icon: FaJava
     },
     {
-        id: 11,
+        id: 10,
         name: "Kotlin",
         icon: SiKotlin
     }
