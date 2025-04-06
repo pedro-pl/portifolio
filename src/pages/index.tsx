@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Card, Container, Header, LineDivisor, ProjectContainer, CardKnowledge, ToggleContainer, Toggle, Footer } from './styles';
+import { Card, Container, Header, LineDivisor, CardKnowledge, ToggleContainer, Toggle, Footer } from './styles';
 
 import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
