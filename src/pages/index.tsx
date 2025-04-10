@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
-import { Card, Container, Header, LineDivisor, CardKnowledge, ToggleContainer, Toggle, Footer } from './styles';
+import { Card, Container, LineDivisor, CardKnowledge, ToggleContainer, Toggle, Footer } from './styles';
+import { Header } from "../components/Header";
 
-import { FiMenu } from 'react-icons/fi';
 import { FiSun } from "react-icons/fi";
 import { FaMoon } from "react-icons/fa";
 import { IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
@@ -68,10 +68,7 @@ export function Home({changeTheme}: themeProps){
 
     return (
         <Container>
-            <Header>
-                <h3>Pedro Lucas</h3>
-                <FiMenu size={22} />
-            </Header>
+            <Header />
 
             <Card>
                 <h2>{about === aboutPtBr ? 'SOBRE MIM' : 'ABOUT ME'}</h2>

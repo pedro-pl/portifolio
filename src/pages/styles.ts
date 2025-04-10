@@ -97,24 +97,6 @@ export const Toggle = styled.button<ToggleProps>`
     }
 `
 
-export const Header = styled.header`
-    width: 100%;
-    height: 8vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-
-    h3 {
-        color: ${props => props.theme['text-light']};
-        font-weight: 800;
-    }
-
-    svg {
-        color: ${props => props.theme['text-light']};
-    }
-`
-
 export const Card = styled.div`
     width: 90%;
     padding: 5%;
