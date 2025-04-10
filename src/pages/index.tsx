@@ -6,7 +6,7 @@ import { IoMailOutline, IoLogoWhatsapp } from "react-icons/io5";
 import { aboutPtBr } from '../mocks/texts';
 import { skills } from '../mocks/skills';
 
-import { ProjectCarousel } from '../components/Carrousel';
+import { ProjectCarousel } from './components/Carrousel';
 import { Header } from "../components/Header";
 import { Footer } from '../components/Footer';
 

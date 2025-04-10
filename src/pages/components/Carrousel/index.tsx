@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projects } from "../../mocks/projects";
+import { projects } from "../../../mocks/projects";
 import { CardSkill, CarouselTrack, CarouselViewport, CarouselWrapper, ProjectCard, SkillsList } from "./styles";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
