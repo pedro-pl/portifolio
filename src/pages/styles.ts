@@ -259,6 +259,25 @@ export const CardKnowledge = styled.div`
             border-radius: 6px;
         }
     }
+
+    @media (max-height: 450px) {
+        overflow-x: auto; 
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        div {
+            width: 20rem;
+            height: 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: ${props => props.theme['text-light']};
+            border-radius: 6px;
+        }
+    }
+
 `
 
 export const Footer = styled.footer`
