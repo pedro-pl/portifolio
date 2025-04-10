@@ -261,14 +261,6 @@ export const CardKnowledge = styled.div`
         background: ${props => props.theme['text-light']};
         border-radius: 6px;
 
-        div {
-            width: 40%;
-            height: 2px;
-            background: ${(props) => props.theme['sub-background']};
-            padding: 0;
-            margin: 0.5rem 0 0 0;
-        }
-
         svg {
             color: ${props => props.theme['sub-background']};
         }
