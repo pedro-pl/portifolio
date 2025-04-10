@@ -277,31 +277,4 @@ export const CardKnowledge = styled.div`
             border-radius: 6px;
         }
     }
-
-`
-
-export const Footer = styled.footer`
-    width: 100%;
-    height: 5vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    div {
-        &:last-child {
-            width: 18%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    }
-
-    p {
-        color: ${props => props.theme['text-light']};
-    }
-
-    a {
-        text-decoration: none;
-        color: ${props => props.theme['text-light']};
-    }
 `

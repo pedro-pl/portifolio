@@ -1,10 +1,10 @@
 import { useState, useRef } from 'react';
-import { Card, Container, LineDivisor, CardKnowledge, ToggleContainer, Toggle, Footer } from './styles';
+import { Card, Container, LineDivisor, CardKnowledge, ToggleContainer, Toggle } from './styles';
 import { Header } from "../components/Header";
 
 import { FiSun } from "react-icons/fi";
 import { FaMoon } from "react-icons/fa";
-import { IoMailOutline, IoLogoLinkedin, IoLogoGithub, IoLogoWhatsapp } from "react-icons/io5";
+import { IoMailOutline, IoLogoWhatsapp } from "react-icons/io5";
 import { LuMove } from "react-icons/lu";
 
 import Draggable from "react-draggable";
@@ -12,6 +12,7 @@ import Draggable from "react-draggable";
 import { aboutEn, aboutPtBr } from '../mocks/texts';
 import { skills } from '../mocks/skills';
 import { ProjectCarousel } from '../components/Carrousel';
+import { Footer } from '../components/Footer';
 
 interface themeProps {
     changeTheme: (theme: string) => void
@@ -113,16 +114,7 @@ export function Home({changeTheme}: themeProps){
 
             <LineDivisor />
 
-            <Footer>
-                <div>
-                    <p>© 2025 {about === aboutPtBr ? 'Por' : 'By'} Pedro Lucas.</p>
-                </div>
-
-                <div>
-                    <a href="https://www.linkedin.com/in/pedro-lucas-74745b21a/" target="_blank"><IoLogoLinkedin size={24}/></a>
-                    <a href="https://github.com/pedro-pl" target="_blank"><IoLogoGithub size={24}/></a>
-                </div>
-            </Footer>
+            <Footer language={about === aboutPtBr ? "pt" : "en"}/>
 
             <Draggable nodeRef={draggableRef as React.RefObject<HTMLElement>} bounds="body">
                 <ToggleContainer ref={draggableRef}  $isDark={theme === 'dark' ? true : false}>
