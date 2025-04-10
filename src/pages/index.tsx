@@ -1,71 +1,20 @@
-import { useState, useRef } from 'react';
-import { Card, Container, LineDivisor, CardKnowledge, ToggleContainer, Toggle } from './styles';
-import { Header } from "../components/Header";
+import { useContext } from 'react';
 
-import { FiSun } from "react-icons/fi";
-import { FaMoon } from "react-icons/fa";
+import { Card, Container, LineDivisor, CardKnowledge } from './styles';
+
 import { IoMailOutline, IoLogoWhatsapp } from "react-icons/io5";
-import { LuMove } from "react-icons/lu";
-
-import Draggable from "react-draggable";
-
-import { aboutEn, aboutPtBr } from '../mocks/texts';
+import { aboutPtBr } from '../mocks/texts';
 import { skills } from '../mocks/skills';
+
 import { ProjectCarousel } from '../components/Carrousel';
+import { Header } from "../components/Header";
 import { Footer } from '../components/Footer';
 
-interface themeProps {
-    changeTheme: (theme: string) => void
-}
+import { Context } from '../contexts/Context';
+import { Toogle } from '../components/Toogle';
 
-export function Home({changeTheme}: themeProps){
-    const [theme, setTheme] = useState('dark')
-    const [about, setAbout] = useState(aboutPtBr)
-    const [isOn, setIsOn] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
-
-    const draggableRef = useRef<HTMLDivElement>(null);
-
-    function handleChangeColorTheme(){
-        if(theme === 'dark'){
-            setTheme('light')
-        }else{
-            setTheme('dark')
-        }
-
-        changeTheme(theme)
-    }
-     
-    function handleChangeLanguageAbout(){
-        if(about === aboutPtBr){
-            setAbout(aboutEn)
-            setIsOn(!isOn)
-        }else{
-            setAbout(aboutPtBr)
-            setIsOn(!isOn)
-        }
-    }
-
-    let pressTimer: ReturnType<typeof setTimeout> | null = null;
-
-    function handlePointerDown(){
-        pressTimer = setTimeout(() => {
-            setIsDragging(true);
-        }, 150);
-    };
-    
-    function handlePointerUp(callback: () => void){
-        if (pressTimer) {
-            clearTimeout(pressTimer);
-            pressTimer = null;
-        }
-    
-        if (!isDragging) {
-            callback();
-        }
-    
-        setIsDragging(false);
-    };
+export function Home(){
+    const { about } = useContext(Context)
 
     return (
         <Container>
@@ -116,19 +65,7 @@ export function Home({changeTheme}: themeProps){
 
             <Footer language={about === aboutPtBr ? "pt" : "en"}/>
 
-            <Draggable nodeRef={draggableRef as React.RefObject<HTMLElement>} bounds="body">
-                <ToggleContainer ref={draggableRef}  $isDark={theme === 'dark' ? true : false}>
-                    <span><LuMove /></span>
-
-                    <Toggle $isOn={isOn} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(handleChangeLanguageAbout)} >
-                        <p>{about === aboutPtBr ? "EN" : "PT"}</p>
-                    </Toggle>
-
-                    <Toggle $isOn={theme === 'dark'} onPointerDown={handlePointerDown} onPointerUp={() => handlePointerUp(handleChangeColorTheme)} >
-                        {theme === "dark" ? <FiSun size={20} /> : <FaMoon size={20} />}
-                    </Toggle>
-                </ToggleContainer>
-            </Draggable>
+            <Toogle/>
         </Container>
     )
 }

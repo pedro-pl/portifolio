@@ -1,23 +1,23 @@
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from './styles/themes/default';
-import { useState } from 'react';
 import { Home } from './pages';
+import { Context, ContextProvider } from './contexts/Context';
+import { useContext } from 'react';
 
-function App() {
-  const [theme, setTheme] = useState(darkTheme);
-
-  function changeTheme(themeColor: string){
-    if(themeColor === 'dark'){
-      setTheme(lightTheme)
-    }else{
-      setTheme(darkTheme)
-    }
-  }
+function AppContent() {
+  const { theme } = useContext(Context);
 
   return (
     <ThemeProvider theme={theme}>
-      <Home changeTheme={changeTheme}/>
+      <Home />
     </ThemeProvider>
+  );
+}
+
+function App() {
+  return (
+    <ContextProvider>
+      <AppContent/>
+    </ContextProvider>
   )
 }
 
