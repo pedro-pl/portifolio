@@ -31,8 +31,8 @@ return (
                         <img src={project.img} alt={project.name} />
                         <SkillsList>
                             {project.skills.map((skill, idx) => (
-                                <CardSkill>
-                                    <p key={idx}>{skill}</p>
+                                <CardSkill  key={idx}>
+                                    <p>{skill}</p>
                                 </CardSkill>
                             ))}
                         </SkillsList>
