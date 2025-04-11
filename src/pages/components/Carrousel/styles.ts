@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const CarouselWrapper = styled.div`
     width: 100%;
-    max-width: 800px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,13 +14,26 @@ export const CarouselWrapper = styled.div`
         border-radius: 50%;
         cursor: pointer;
     }
+
+    @media (min-width: 600px){
+        justify-content: center;
+        gap: 2rem;
+
+        svg {
+            padding: 10px;
+        }
+    }
 `;
 
 export const CarouselViewport = styled.div`
     width: 80%;
-    max-width: 600px;
     overflow: hidden;
+
+    @media (min-width: 750px) {
+        width: 100%;
+    }
 `;
+
 
 
 interface CarrouselProps {
@@ -45,10 +57,8 @@ export const ProjectCard = styled.div`
     border-radius: 6px;
     gap: 0.6rem;
 
-
     img {
         width: 100%;
-        max-height: 250px;
         border-radius: 6px;
     }
 
@@ -58,9 +68,17 @@ export const ProjectCard = styled.div`
     }
 
     p {
+        width: 100%;
         margin: 0;
         line-height: 1.2rem;
         color: ${props => props.theme['text-light']};
+    }
+
+    @media (min-width: 1200px){
+        p{
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+        }
     }
 `;
 
@@ -71,6 +89,23 @@ export const SkillsList = styled.div`
     align-items: center;
     gap: 0.625rem;
     margin: 0.5rem 0;
+    padding-bottom: 6px;
+
+    &::-webkit-scrollbar {
+        height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: ${props => props.theme['text-light']};
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: ${props => props.theme['background']};
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 `;
 
 export const CardSkill = styled.div`
@@ -83,5 +118,11 @@ export const CardSkill = styled.div`
     p {
         font-size: 0.75rem;
         white-space: nowrap;
+    }
+
+    @media (min-width:1200px){
+        p{
+            font-size: 1rem;
+        }
     }
 `

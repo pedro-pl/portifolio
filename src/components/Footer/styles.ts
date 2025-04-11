@@ -24,4 +24,8 @@ export const Container = styled.footer`
         text-decoration: none;
         color: ${props => props.theme['text-light']};
     }
+
+    @media (min-width: 1200px){
+        font-size: 1rem;
+    }
 `

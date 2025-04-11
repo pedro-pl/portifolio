@@ -1,5 +1,5 @@
-import { IoLogoJavascript, IoLogoReact, IoLogoGithub, IoLogoCss3, IoLogoNodejs, IoLogoHtml5 } from "react-icons/io5";
-import { SiTypescript, SiMysql, SiKotlin } from "react-icons/si";
+import { IoLogoReact, IoLogoGithub, IoLogoCss3, IoLogoNodejs, IoLogoHtml5 } from "react-icons/io5";
+import { SiTypescript, SiJavascript, SiMysql, SiKotlin } from "react-icons/si";
 import { DiScrum } from "react-icons/di";
 import { FaJava } from "react-icons/fa6";
 
@@ -23,7 +23,7 @@ export const skills: Skill[] = [
     {
         id: 2,
         name: "JavaScript",
-        icon: IoLogoJavascript
+        icon: SiJavascript
     },
     {
         id: 3,

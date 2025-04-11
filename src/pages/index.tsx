@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { Card, Container, LineDivisor, CardKnowledge } from './styles';
+import { Card, Container, LineDivisor, CardKnowledge, ContainerAboutMe } from './styles';
 
 import { IoMailOutline, IoLogoWhatsapp } from "react-icons/io5";
 import { aboutPtBr } from '../mocks/texts';
@@ -13,6 +13,8 @@ import { Footer } from '../components/Footer';
 import { Context } from '../contexts/Context';
 import { Toogle } from '../components/Toogle';
 
+import Me from "../assets/me.jpg";
+
 export function Home(){
     const { about } = useContext(Context)
 
@@ -23,7 +25,11 @@ export function Home(){
             <Card>
                 <h2>{about === aboutPtBr ? 'SOBRE MIM' : 'ABOUT ME'}</h2>
 
-                <p>{about}</p>
+                <ContainerAboutMe>
+                    <p>{about}</p>
+
+                    <img src={Me} />
+                </ContainerAboutMe>
             </Card>
 
             <LineDivisor />
