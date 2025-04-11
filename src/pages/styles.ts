@@ -108,8 +108,7 @@ export const ContainerAboutMe = styled.div`
             width: 20%;
             display: block;
             border-radius: 8px;
-            box-shadow:  0px 0px 15px #000,
-            0px 0px 15px #000;
+            box-shadow: 0 3px 6px #00000029, 0 1px 2px #0000003b;
         }
     }
 `
