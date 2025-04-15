@@ -18,6 +18,7 @@ export const ToggleContainer = styled.div<SpanProps>`
     border: 1.5px solid ${props => props.theme['sub-background']};
     border-radius:25px;
     cursor: grab;
+    z-index: 999;
 
     span {
         position: absolute;

@@ -9,7 +9,9 @@ export const darkTheme = {
     'text': '#D8F3DC',
     'text-light': '#D8F3DC',
 
-    'toggle': '#40916C'
+    'toggle': '#40916C',
+
+    'background-menu' : '#020202' 
 }
 
 export const lightTheme = {

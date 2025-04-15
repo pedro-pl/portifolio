@@ -9,7 +9,6 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-x: auto;
-
     gap: 1rem;
 
     @media (min-width: 1000px){

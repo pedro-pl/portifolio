@@ -6,7 +6,6 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 
     h3 {
         color: ${props => props.theme['text-light']};
