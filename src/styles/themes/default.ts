@@ -11,7 +11,7 @@ export const darkTheme = {
 
     'toggle': '#40916C',
 
-    'background-menu' : '#020202' 
+    'background-menu' : '#081C15' 
 }
 
 export const lightTheme = {
@@ -25,5 +25,7 @@ export const lightTheme = {
     'text': '#333333',
     'text-light': '#D8F3DC',
 
-    'toggle': '#1B4332'
+    'toggle': '#1B4332',
+
+    'background-menu' : '#D8F3DC' 
 }

@@ -18,7 +18,7 @@ export const Container = styled.div<IsOpenProps>`
     z-index: 998;
     box-shadow: 0 3px 6px #00000029, 0 1px 2px #0000003b;
     border-radius: 8px;
-    gap: 1rem;
+    gap: 2rem;
 
     svg {
         color: #fff;
