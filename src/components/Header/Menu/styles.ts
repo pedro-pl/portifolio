@@ -18,7 +18,7 @@ export const Container = styled.div<IsOpenProps>`
     z-index: 998;
     box-shadow: 0 3px 6px #00000029, 0 1px 2px #0000003b;
     border-radius: 8px;
-    gap: 2rem;
+    gap: 1rem;
 
     svg {
         color: #fff;
@@ -40,7 +40,7 @@ export const NavBar = styled.nav`
     li{
         list-style: none;
         color: ${props => props.theme['text']};
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: 600;
     }
 
