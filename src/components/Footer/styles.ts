@@ -17,12 +17,12 @@ export const Container = styled.footer`
     }
 
     p {
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text']};
     }
 
     a {
         text-decoration: none;
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text']};
     }
 
     @media (min-width: 1200px){

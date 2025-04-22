@@ -8,12 +8,12 @@ export const Container = styled.header`
     align-items: center;
 
     h3 {
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text']};
         font-weight: 800;
     }
 
     svg {
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text']};
     }
 
     @media (max-height: 650px){

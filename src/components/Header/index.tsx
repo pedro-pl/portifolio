@@ -17,7 +17,6 @@ export function Header(){
           document.body.classList.remove('lock-scroll');
         }
       
-        // Limpeza se o componente desmontar
         return () => {
           document.body.classList.remove('lock-scroll');
         };
