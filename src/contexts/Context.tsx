@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useEffect } from "react";
 
 
 import { useState } from 'react';
@@ -11,8 +11,9 @@ interface ThemeType {
     'background-card': string;
     'sub-background': string;
     'skill-background': string;
+    'text-skill': string;
+    'text-project': string;
     text: string;
-    'text-light': string;
     toggle: string;
   }
 
@@ -24,7 +25,8 @@ interface ContextType {
     handlePointerUp: (callback: () => void) => void,
     theme: ThemeType,
     about: string,
-    isOn: boolean,
+    isLanguageOn: boolean,
+    isThemeOn: boolean,
     themeColor: string,
 }
 
@@ -35,10 +37,12 @@ export interface ContextProviderProps {
 }
 
 export function ContextProvider({children}: ContextProviderProps){
-    const [theme, setTheme] = useState(darkTheme)
-    const [themeColor, setThemeColor] = useState('dark')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const [theme, setTheme] = useState(prefersDark ? darkTheme : lightTheme)
+    const [themeColor, setThemeColor] = useState(prefersDark ? 'dark' : 'light')
     const [about, setAbout] = useState(aboutPtBr)
-    const [isOn, setIsOn] = useState(false);
+    const [isLanguageOn, setIsLanguageOn] = useState(false);
+    const [isThemeOn, setIsThemeOn] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     
     function changeTheme(themeColor: string){
@@ -50,22 +54,24 @@ export function ContextProvider({children}: ContextProviderProps){
     }
     
     function handleChangeColorTheme(){
+        changeTheme(themeColor);
+
         if(themeColor === 'dark'){
             setThemeColor('light')
         }else{
             setThemeColor('dark')
         }
 
-        changeTheme(themeColor)
+        setIsThemeOn(!isThemeOn);
     }
         
     function handleChangeLanguageAbout(){
         if(about === aboutPtBr){
             setAbout(aboutEn)
-            setIsOn(!isOn)
+            setIsLanguageOn(!isLanguageOn)
         }else{
             setAbout(aboutPtBr)
-            setIsOn(!isOn)
+            setIsLanguageOn(!isLanguageOn)
         }
     }
 
@@ -99,7 +105,8 @@ export function ContextProvider({children}: ContextProviderProps){
             handlePointerUp,
             theme,
             about,
-            isOn,
+            isLanguageOn,
+            isThemeOn,
             themeColor
         }}>
             {children}

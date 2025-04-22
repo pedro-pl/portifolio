@@ -34,7 +34,7 @@ export const ToggleContainer = styled.div<SpanProps>`
         border: 1.5px solid ${props => props.theme['sub-background']};        
 
         svg {
-            color: ${(props) => (props.theme[props.$isDark ? 'sub-background' : 'text-light'])};
+            color: ${(props) => (props.theme['sub-background'])};
         }
     }
 `
@@ -58,7 +58,7 @@ export const Toggle = styled.button<ToggleProps>`
         position: absolute;
         width: 24px;
         height: 24px;
-        background: ${props => props.theme['background']};
+        background: ${props => props.theme['background-card']};
         border-radius: 50%;
         top: 28%;
         left: ${({ $isOn }) => ($isOn ? '48px' : '16px')};
@@ -69,7 +69,7 @@ export const Toggle = styled.button<ToggleProps>`
     svg {
         font-weight: 600;
         color: ${props => props.theme['background-card']};
-        margin-left: ${({ $isOn }) => ($isOn ? '32px' : '0px')};
+        margin-left: ${({ $isOn }) => (!$isOn ? '32px' : '0px')};
     }
 
     p{
@@ -81,7 +81,7 @@ export const Toggle = styled.button<ToggleProps>`
     &:last-child{
         &:before{
             top: 72%;
-            left: ${({ $isOn }) => (!$isOn ? '48px' : '16px')};
+            left: ${({ $isOn }) => ($isOn ? '48px' : '16px')};
         }
     }
 `
