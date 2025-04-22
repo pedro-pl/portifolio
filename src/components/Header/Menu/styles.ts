@@ -7,22 +7,19 @@ interface IsOpenProps {
 export const Container = styled.div<IsOpenProps>`
     display: flex;
     flex-direction: column;
-    width: 93vw;
-    height: 50vh;
+    width: 60vw;
+    height: 100vh;
     position: fixed;
-    top: 2%;
-    right: ${props => props.$isOpen ? "50%" : "-200%"};
-    transform: translateX(50%);
-    transition: 0.2s;
-    background: ${props => props.theme['background-card']};
+    top: 0;
+    right: ${props => props.$isOpen ? "0%" : "-200%"};
+    transition: 0.3s;
+    backdrop-filter: blur(30px);
     z-index: 998;
     box-shadow: 0 3px 6px #00000029, 0 1px 2px #0000003b;
-    border-radius: 8px;
     gap: 1rem;
 
     svg {
         color: #fff;
-        align-self: flex-end;
         margin: 5px;
         color: ${props => props.theme['text']}
     }
@@ -34,7 +31,6 @@ export const NavBar = styled.nav`
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
 
     li{
@@ -42,10 +38,15 @@ export const NavBar = styled.nav`
         color: ${props => props.theme['text']};
         font-size: 1.5rem;
         font-weight: 600;
+        margin-left: 1rem;
     }
 
     div {
         margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
 
         svg {
             color: ${props => props.theme['text']}
