@@ -151,7 +151,7 @@ export const CardProject = styled.div`
 
     h3 {
         margin: 0;
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text']};
     }
 
     img {
@@ -162,7 +162,7 @@ export const CardProject = styled.div`
     p {
         margin: 0;
         line-height: 1.2rem;
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text']};
     }
 `
 
@@ -177,7 +177,7 @@ export const ContainerSkills = styled.div`
 export const CardSkill = styled.div`
     padding: 5px 10px;
     background: #40916C;
-    color: ${props => props.theme['text-light']};
+    color: ${props => props.theme['text']};
     border-radius: 12px;
     align-self: flex-start;
     
@@ -206,7 +206,7 @@ export const CardKnowledge = styled.div`
     }
 
     &::-webkit-scrollbar-track {
-        background: ${props => props.theme['text-light']};
+        background: ${props => props.theme['text']};
     }
 
     &::-webkit-scrollbar-thumb {
@@ -225,7 +225,7 @@ export const CardKnowledge = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        background: ${props => props.theme['text-light']};
+        background: ${props => props.theme['text']};
         border-radius: 6px;
 
         svg {
@@ -234,7 +234,7 @@ export const CardKnowledge = styled.div`
 
         h4 {
             margin: 0.5rem 0 0 0;
-            color: ${props => props.theme['text-light']};
+            color: ${props => props.theme['text']};
             background: ${props => props.theme['sub-background']};
             border: 2px solid #333;
             width: 100%;
@@ -258,7 +258,7 @@ export const CardKnowledge = styled.div`
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            background: ${props => props.theme['text-light']};
+            background: ${props => props.theme['text']};
             border-radius: 6px;
         }
     }

@@ -13,6 +13,7 @@ export const CarouselWrapper = styled.div`
         padding: 3px;
         border-radius: 50%;
         cursor: pointer;
+        border: 2px solid ${props => props.theme['text']};
     }
 
     @media (min-width: 600px){
@@ -64,14 +65,15 @@ export const ProjectCard = styled.div`
 
     h3 {
         margin: 0;
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text-project']};
     }
 
     p {
         width: 100%;
         margin: 0;
         line-height: 1.2rem;
-        color: ${props => props.theme['text-light']};
+        color: ${props => props.theme['text-project']};
+        font-weight: 500;
     }
 
     @media (min-width: 1200px){
@@ -96,11 +98,13 @@ export const SkillsList = styled.div`
     }
 
     &::-webkit-scrollbar-track {
-        background: ${props => props.theme['text-light']};
+        background: ${props => props.theme['scroll-track']};
+        border-radius: 20px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: ${props => props.theme['background']};
+        background: ${props => props.theme['scroll-thumb']};
+        border-radius: 20px;
     }
 
     &::-webkit-scrollbar-thumb:hover {
@@ -111,13 +115,14 @@ export const SkillsList = styled.div`
 export const CardSkill = styled.div`
     padding: 5px 10px;
     background: ${props => props.theme['skill-background']};
-    color: ${props => props.theme['text-light']};
     border-radius: 16px;
     align-self: flex-start;
     
     p {
         font-size: 0.75rem;
         white-space: nowrap;
+        color: ${props => props.theme['text-skill']};
+        font-weight: 600;
     }
 
     @media (min-width:1200px){
