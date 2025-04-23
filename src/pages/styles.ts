@@ -206,11 +206,11 @@ export const CardKnowledge = styled.div`
     }
 
     &::-webkit-scrollbar-track {
-        background: ${props => props.theme['text']};
+        background: ${props => props.theme['scroll-track']};
     }
 
     &::-webkit-scrollbar-thumb {
-        background: ${props => props.theme['background']};
+        background: ${props => props.theme['scroll-thumb']};
     }
 
     &::-webkit-scrollbar-thumb:hover {
@@ -225,18 +225,18 @@ export const CardKnowledge = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        background: ${props => props.theme['text']};
+        background: ${props => props.theme['background-knowledge']};
         border-radius: 6px;
 
         svg {
-            color: ${props => props.theme['sub-background']};
+            color: ${props => props.theme['text-knowledge']};
         }
 
         h4 {
             margin: 0.5rem 0 0 0;
-            color: ${props => props.theme['text']};
-            background: ${props => props.theme['sub-background']};
-            border: 2px solid #333;
+            color: ${props => props.theme['text-knowledge']};
+            background: ${props => props.theme['background-knowledge']};
+            border: 2px solid ${props => props.theme['text-knowledge']};;
             width: 100%;
             display: flex;
             justify-content: center;
