@@ -86,6 +86,7 @@ export const ContainerAboutMe = styled.div`
         font-weight: 600;
         font-size: 0.87rem;
         line-height: 1.2rem;
+        white-space: pre-line;
     }
 
     img {
