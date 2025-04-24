@@ -16,12 +16,17 @@ export const Container = styled.div<IsOpenProps>`
     backdrop-filter: blur(30px);
     z-index: 998;
     box-shadow: 0 3px 6px #00000029, 0 1px 2px #0000003b;
-    gap: 1rem;
+    gap: 2.5rem;
 
     svg {
         color: #fff;
         margin: 5px;
-        color: ${props => props.theme['text']}
+        color: ${props => props.theme['text']};
+        align-self: flex-end;
+    }
+
+    @media (min-width: 1020px){
+        display: none;
     }
 `
 
@@ -38,7 +43,7 @@ export const NavBar = styled.nav`
         color: ${props => props.theme['text']};
         font-size: 1.5rem;
         font-weight: 600;
-        margin-left: 1rem;
+        margin-left: 10%;
     }
 
     div {
