@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { projects } from "../../../mocks/projects";
 import { CardSkill, CarouselTrack, CarouselViewport, CarouselWrapper, ProjectCard, SkillsList } from "./styles";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Context } from "../../../contexts/Context";
 
 interface LanguageProps{
     language: string;
@@ -9,6 +10,7 @@ interface LanguageProps{
 
 export function ProjectCarousel({language}: LanguageProps){
     const [currentIndex, setCurrentIndex] = useState(0);
+    const {themeColor} = useContext(Context);
 
     function next(){
         setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -20,7 +22,7 @@ export function ProjectCarousel({language}: LanguageProps){
 };
 
 return (
-    <CarouselWrapper>
+    <CarouselWrapper color={themeColor}>
         <FaArrowLeft onClick={prev}/>
   
         <CarouselViewport>

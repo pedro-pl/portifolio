@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const CarouselWrapper = styled.div`
+interface ThemeProps {
+    color: string;
+}
+
+export const CarouselWrapper = styled.div<ThemeProps>`
     width: 100%;
     display: flex;
     align-items: center;
@@ -13,7 +17,7 @@ export const CarouselWrapper = styled.div`
         padding: 3px;
         border-radius: 50%;
         cursor: pointer;
-        border: 2px solid ${props => props.theme['text']};
+        border: 2px solid ${props => props.theme[props.color === 'dark' ? 'background-arrow' : 'text']};
     }
 
     @media (min-width: 600px){
