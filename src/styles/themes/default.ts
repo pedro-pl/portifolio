@@ -7,6 +7,7 @@ export const darkTheme = {
     'text-project': '#D8F3DC',  
     'skill-background': '#339989',
     'text-skill': '#D8F3DC',
+    'hover-link': '#14746f',
     
     'background-arrow': '#CED4DA',
     'border-arrow': '#CED4DA',
@@ -29,8 +30,9 @@ export const lightTheme = {
     'text': '#333333',
     
     'text-project': '#333333',
-    'skill-background': '#6b9080',
+    'skill-background': '#14746f',
     'text-skill': '#D8F3DC',
+    'hover-link': '#358f80',
 
     'background-arrow': 'transparent',
     'border-arrow': '#333333',
@@ -39,7 +41,7 @@ export const lightTheme = {
     'scroll-thumb':'#333333',
 
     'background-knowledge': '#343a40',
-    'text-knowledge': '#e9ecef',
+    'text-knowledge': '#faf3dd',
 
     'toggle': '#1B4332',
 

@@ -91,7 +91,7 @@ export const ProjectCard = styled.div`
 export const SkillsList = styled.div`
     overflow-y: auto;
     width: 100%;
-    height: 2.3rem;
+    height: 6vh;
     display: flex;
     align-items: center;
     gap: 0.625rem;
@@ -142,16 +142,25 @@ export const ButtonContainer = styled.div`
     height: 10%;
     margin-top: 0.5rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
     align-items: center;
+
+    @media (min-width: 900px){
+        justify-content: flex-end;
+    }
 `
 
 export const ButtonNavigation = styled.button`
-    width: 40%;
-    height: 100%;
+    width: 3.5rem;
+    height: 3.5rem;
     border: none;
-    border-radius: 6px;
+    border-radius: 50%;
     background: ${props => props.theme['skill-background']};
+
+    &:hover{
+        background-color: ${props => props.theme['hover-link']};
+    }
 
     a {
         width: 100%;
@@ -167,5 +176,14 @@ export const ButtonNavigation = styled.button`
         background: transparent;
         border: none;
         color: ${props => props.theme['text-skill']};
+    }
+
+    @media (min-width: 900px){
+        width: 4rem;
+        height: 4rem;
+
+        svg {
+            font-size: 34px;
+        }
     }
 `
