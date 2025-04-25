@@ -91,10 +91,11 @@ export const ProjectCard = styled.div`
 export const SkillsList = styled.div`
     overflow-y: auto;
     width: 100%;
+    height: 2.3rem;
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    margin: 0.5rem 0;
+    margin-top: 0.5rem;
     padding-bottom: 6px;
 
     &::-webkit-scrollbar {
@@ -133,5 +134,38 @@ export const CardSkill = styled.div`
         p{
             font-size: 1rem;
         }
+    }
+`
+
+export const ButtonContainer = styled.div`
+    width: 100%;
+    height: 10%;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`
+
+export const ButtonNavigation = styled.button`
+    width: 40%;
+    height: 100%;
+    border: none;
+    border-radius: 6px;
+    background: ${props => props.theme['skill-background']};
+
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    svg {
+        font-size: 26px;
+        background: transparent;
+        border: none;
+        color: ${props => props.theme['text-skill']};
     }
 `

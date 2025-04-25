@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import { projects } from "../../../mocks/projects";
-import { CardSkill, CarouselTrack, CarouselViewport, CarouselWrapper, ProjectCard, SkillsList } from "./styles";
+import { ButtonContainer, ButtonNavigation, CardSkill, CarouselTrack, CarouselViewport, CarouselWrapper, ProjectCard, SkillsList } from "./styles";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Context } from "../../../contexts/Context";
+import { BsGlobe2 } from "react-icons/bs";
+import { IoLogoGithub } from "react-icons/io5";
 
 interface LanguageProps{
     language: string;
@@ -39,6 +41,18 @@ return (
                             ))}
                         </SkillsList>
                         <p>{language === 'pt' ? project.descriptionPt : project.descriptionEn}</p>
+                        <ButtonContainer>
+                            <ButtonNavigation>
+                                <a href={project.linkGit} target="_blank">
+                                    <IoLogoGithub/>
+                                </a>
+                            </ButtonNavigation>
+                            <ButtonNavigation>
+                                <a href={project.linkWeb} target="_blank">
+                                    <BsGlobe2/>
+                                </a>
+                            </ButtonNavigation>
+                        </ButtonContainer>
                     </ProjectCard>
                 ))}
             </CarouselTrack>
