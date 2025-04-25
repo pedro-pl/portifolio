@@ -235,8 +235,8 @@ export const CardKnowledge = styled.div`
 
         h4 {
             margin: 0.5rem 0 0 0;
-            color: ${props => props.theme['text-knowledge']};
-            background: ${props => props.theme['background-knowledge']};
+            color: ${props => props.theme['background-knowledge']};
+            background: ${props => props.theme['text-knowledge']};
             border: 2px solid ${props => props.theme['text-knowledge']};;
             width: 100%;
             display: flex;
