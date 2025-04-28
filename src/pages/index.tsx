@@ -22,7 +22,7 @@ export function Home(){
         <Container>
             <Header />
 
-            <Card id='sobre'>
+            <Card id='sobre' $first>
                 <h2>{about === aboutPtBr ? 'SOBRE MIM' : 'ABOUT ME'}</h2>
 
                 <ContainerAboutMe>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
     width: 90%;
@@ -22,7 +22,11 @@ export const Container = styled.div`
     }
 `
 
-export const Card = styled.div`
+interface CardProps {
+    $first?: boolean;
+}
+
+export const Card = styled.div<CardProps>`
     width: 90%;
     padding: 5%;
     background: ${props => props.theme['background-card']};
@@ -31,6 +35,10 @@ export const Card = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    ${props => props.$first && css`
+        margin-top: 8vh;
+    `}
 
     h2 {
         color: ${props => props.theme['text']};
