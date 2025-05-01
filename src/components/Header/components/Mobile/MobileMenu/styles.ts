@@ -17,6 +17,7 @@ export const Container = styled.div<IsOpenProps>`
     z-index: 999;
     gap: 2.5rem;
     position: fixed;
+    user-select: none;
 
     svg {
         color: #fff;
