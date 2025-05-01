@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface ContainerProps {
-    $scrolled: boolean;
+    $scrolled: boolean
 }
 
 export const Container = styled.header<ContainerProps>`
@@ -12,10 +12,9 @@ export const Container = styled.header<ContainerProps>`
     align-items: center;
     position: fixed;
     padding: 0 5%;
-    z-index: 999;
-    background: ${props => props.$scrolled ? 'rgba(0, 0, 0, 0.4)' : 'transparent'};
-    box-shadow: ${props => props.$scrolled ? '0 2px 4px rgba(0,0,0,0.3)' : 'none'};
-    backdrop-filter: ${props => props.$scrolled ? "blur(20px)" : "none"};
+    z-index: 997;
+    backdrop-filter: blur(30px);
+    background: rgba(15, 15, 15, 0.4);
 
     @media (max-height: 650px){
         margin-top: 1rem;

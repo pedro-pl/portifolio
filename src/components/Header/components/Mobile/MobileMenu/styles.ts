@@ -9,14 +9,14 @@ export const Container = styled.div<IsOpenProps>`
     flex-direction: column;
     width: 60vw;
     height: 100vh;
-    position: fixed;
     top: 0;
     right: ${props => props.$isOpen ? "0%" : "-200%"};
     transition: 0.3s;
-    backdrop-filter: blur(30px);
-    z-index: 998;
-    box-shadow: 0 3px 6px #00000029, 0 1px 2px #0000003b;
+    background: ${props => props.theme['background']};
+    box-shadow: 60px 20px 100px rgb(0, 0, 0), 20px -20px 100px rgb(0, 0, 0);
+    z-index: 999;
     gap: 2.5rem;
+    position: fixed;
 
     svg {
         color: #fff;

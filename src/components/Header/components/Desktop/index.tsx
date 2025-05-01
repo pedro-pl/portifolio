@@ -8,7 +8,7 @@ export function DesktopHeader(){
           duration: 800,
           delay: 0,
           smooth: 'easeInOutQuart',
-          offset: sectionName === 'projetos' ? 0 : -80
+          offset: sectionName === 'projetos' ? -50 : -80
         });
     };
 
