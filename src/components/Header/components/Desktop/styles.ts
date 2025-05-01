@@ -14,7 +14,7 @@ export const Container = styled.div`
 `
 
 export const Navbar = styled.nav`
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     align-items: center;
