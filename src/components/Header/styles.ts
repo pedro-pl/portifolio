@@ -14,10 +14,10 @@ export const Container = styled.header<ContainerProps>`
     padding: 0 5%;
     z-index: 997;
     backdrop-filter: blur(30px);
-    background: rgba(15, 15, 15, 0.4);
+    background: ${props => props.$scrolled ? 'rgba(15, 15, 15, 0.4)' : props.theme['background']};
 
     @media (max-height: 650px){
-        margin-top: 1rem;
+        height: 15vh;
     }
 
     @media (min-width: 1000px){

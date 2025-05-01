@@ -1,14 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Container } from "./styles";
 import { FiMenu } from "react-icons/fi";
 import { MobileMenu } from "./MobileMenu";
 
 export function MobileHeader(){
     const [isOpen, setIsOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     function toggleMobileMenu(){
         setIsOpen(!isOpen)
     }
+
+    useEffect(() => {
+      if (isOpen) {
+        const handleClickOutside = (event: MouseEvent) => {
+          if (
+            menuRef.current &&
+            !menuRef.current.contains(event.target as Node)
+          ) {
+            setIsOpen(false);
+          }
+        };
+  
+        document.addEventListener("mousedown", handleClickOutside);
+  
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }
+    }, [isOpen]);
 
     useEffect(() => {
         if (isOpen) {
@@ -26,7 +46,7 @@ export function MobileHeader(){
         <Container>
             <h3>Pedro Lucas</h3>
             <FiMenu size={22} onClick={() => toggleMobileMenu()}/>
-            <MobileMenu isOpen={isOpen} toggleMenu={toggleMobileMenu}/>
+            <MobileMenu isOpen={isOpen} toggleMenu={toggleMobileMenu} menuRef={menuRef}/>
         </Container>
     )
 }

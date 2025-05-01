@@ -6,9 +6,10 @@ import { scroller } from "react-scroll";
 interface MenuProps {
     isOpen: boolean;
     toggleMenu: () => void;
+    menuRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export function MobileMenu({isOpen, toggleMenu}: MenuProps){
+export function MobileMenu({isOpen, toggleMenu, menuRef}: MenuProps){
     const scrollToSection = (sectionName: string) => {
             scroller.scrollTo(sectionName, {
               duration: 800,
@@ -19,7 +20,7 @@ export function MobileMenu({isOpen, toggleMenu}: MenuProps){
             toggleMenu()
         };
     return (
-        <Container $isOpen={isOpen}>
+        <Container $isOpen={isOpen}  ref={menuRef}>
             <CgClose size={30} onClick={() => toggleMenu()}/>
 
             <NavBar>
