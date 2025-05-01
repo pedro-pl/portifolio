@@ -13,6 +13,8 @@ interface LanguageProps{
 export function ProjectCarousel({language}: LanguageProps){
     const [currentIndex, setCurrentIndex] = useState(0);
     const {themeColor} = useContext(Context);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
     function next(){
         setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -20,14 +22,43 @@ export function ProjectCarousel({language}: LanguageProps){
 
     function prev(){
         setCurrentIndex((prev) => prev === 0 ? projects.length - 1 : prev - 1
-    );
-};
+        );
+    };
+
+    function handleTouchStart(e: React.TouchEvent){
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    function handleTouchMove(e: React.TouchEvent){
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    function handleTouchEnd(){
+        if (!touchStart || !touchEnd) return;
+
+        const distance = touchStart - touchEnd;
+        const minSwipeDistance = 20;
+
+        if (distance > minSwipeDistance) {
+            next();
+        } else if (distance < -minSwipeDistance) {
+            prev();
+        }
+
+        setTouchStart(null);
+        setTouchEnd(null);
+    };
+
 
 return (
     <CarouselWrapper color={themeColor}>
         <FaArrowLeft onClick={prev}/>
   
-        <CarouselViewport>
+        <CarouselViewport
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             <CarouselTrack $current={currentIndex}>
                 {projects.map((project) => (
                     <ProjectCard key={project.id}>

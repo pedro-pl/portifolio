@@ -270,6 +270,22 @@ export const CardKnowledge = styled.div`
             background: ${props => props.theme['text']};
             border-radius: 6px;
         }
+
+        &::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: ${props => props.theme['scroll-track']};
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: ${props => props.theme['scroll-thumb']};
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     }
 
     @media (min-width: 800px){

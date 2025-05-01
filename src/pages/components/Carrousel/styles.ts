@@ -89,32 +89,14 @@ export const ProjectCard = styled.div`
 `;
 
 export const SkillsList = styled.div`
-    overflow-y: auto;
     width: 100%;
-    height: 6vh;
+    height: auto;
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     gap: 0.625rem;
     margin-top: 0.5rem;
     padding-bottom: 6px;
-
-    &::-webkit-scrollbar {
-        height: 3px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: ${props => props.theme['scroll-track']};
-        border-radius: 20px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: ${props => props.theme['scroll-thumb']};
-        border-radius: 20px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
 `;
 
 export const CardSkill = styled.div`
