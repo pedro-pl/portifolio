@@ -13,7 +13,7 @@ import { Footer } from '../components/Footer';
 import { Context } from '../contexts/Context';
 import { Toogle } from '../components/Toogle';
 
-import Me from '../assets/me.jpg';
+import Me from '../assets/perfil.png';
 
 export function Home(){
     const { about } = useContext(Context)
