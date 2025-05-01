@@ -37,7 +37,7 @@ export function ProjectCarousel({language}: LanguageProps){
         if (!touchStart || !touchEnd) return;
 
         const distance = touchStart - touchEnd;
-        const minSwipeDistance = 20;
+        const minSwipeDistance = 50;
 
         if (distance > minSwipeDistance) {
             next();
