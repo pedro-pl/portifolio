@@ -24,7 +24,7 @@ export const Navbar = styled.nav`
     li{
         list-style: none;
         color: ${props => props.theme['text']};
-        font-size: 1rem;
+        font-size: 0.8rem;
         font-weight: 600;
         cursor: pointer;
         border-bottom: 2px solid transparent;
@@ -41,6 +41,12 @@ export const Navbar = styled.nav`
         &:hover {
             border-bottom: 2px solid ${props => props.theme['text']};
             transition: 0.2s;
+        }
+    }
+
+    @media (min-width: 1160px) {
+        li {
+            font-size: 1rem;
         }
     }
 

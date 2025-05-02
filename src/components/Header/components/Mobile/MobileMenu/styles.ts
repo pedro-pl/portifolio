@@ -30,7 +30,7 @@ export const Container = styled.div<IsOpenProps>`
         width: 20rem;
     }
 
-    @media (min-width: 1160px){
+    @media (min-width: 800px){
         display: none;
     }
 `

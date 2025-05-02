@@ -30,7 +30,7 @@ export function Header(){
     return(
         <Container $scrolled={isScrolled}>
             {
-                screenWidth < 1160 
+                screenWidth < 800 
                     ?
                 <MobileHeader />
                     :
