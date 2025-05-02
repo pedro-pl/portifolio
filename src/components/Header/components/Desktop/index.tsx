@@ -23,7 +23,7 @@ export function DesktopHeader(){
                 <li onClick={() => scrollToSection('projetos')}>Projetos</li>
                 <li onClick={() => scrollToSection('conhecimentos')}>Conhecimentos</li>
                 <li onClick={() => scrollToSection('contatos')}>Contatos</li>
-                <li><a href={cv} download>Download CV <HiDownload size={22}/></a></li>
+                <li><a href={cv} download>Download CV <HiDownload/></a></li>
             </Navbar>
 
             <Contacts>

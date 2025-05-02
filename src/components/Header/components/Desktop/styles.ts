@@ -36,6 +36,10 @@ export const Navbar = styled.nav`
             display: flex;
             align-items: center;
             gap: 5px;
+
+            svg {
+                font-size: 18px;
+            }
         }
 
         &:hover {
@@ -47,6 +51,12 @@ export const Navbar = styled.nav`
     @media (min-width: 1160px) {
         li {
             font-size: 1rem;
+
+            a {
+                    svg {
+                        font-size: 20px;
+                    }
+            }
         }
     }
 
