@@ -1,6 +1,8 @@
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import { HiDownload } from "react-icons/hi";
 import { Contacts, Container, Navbar } from "./styles";
 import { scroller } from 'react-scroll';
+import cv from "../../../../assets/Curriculo_Pedro_Lucas.pdf";
 
 export function DesktopHeader(){
     const scrollToSection = (sectionName: string) => {
@@ -21,6 +23,7 @@ export function DesktopHeader(){
                 <li onClick={() => scrollToSection('projetos')}>Projetos</li>
                 <li onClick={() => scrollToSection('conhecimentos')}>Conhecimentos</li>
                 <li onClick={() => scrollToSection('contatos')}>Contatos</li>
+                <li><a href={cv} download>Download CV <HiDownload size={22}/></a></li>
             </Navbar>
 
             <Contacts>

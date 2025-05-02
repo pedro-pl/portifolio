@@ -7,7 +7,7 @@ interface IsOpenProps {
 export const Container = styled.div<IsOpenProps>`
     display: flex;
     flex-direction: column;
-    width: 60vw;
+    width: 65vw;
     height: 100vh;
     top: 0;
     right: ${props => props.$isOpen ? "0%" : "-200%"};
@@ -26,7 +26,11 @@ export const Container = styled.div<IsOpenProps>`
         align-self: flex-end;
     }
 
-    @media (min-width: 1020px){
+    @media (min-width: 570px){
+        width: 20rem;
+    }
+
+    @media (min-width: 1160px){
         display: none;
     }
 `
@@ -45,6 +49,14 @@ export const NavBar = styled.nav`
         font-size: 1.5rem;
         font-weight: 600;
         margin-left: 10%;
+
+        a {
+            text-decoration: none;
+            color: ${props => props.theme['text']};
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
     }
 
     div {

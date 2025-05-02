@@ -30,6 +30,14 @@ export const Navbar = styled.nav`
         border-bottom: 2px solid transparent;
         transition: 0.2s;
 
+        a {
+            text-decoration: none;
+            color: ${props => props.theme['text']};
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         &:hover {
             border-bottom: 2px solid ${props => props.theme['text']};
             transition: 0.2s;
@@ -37,7 +45,7 @@ export const Navbar = styled.nav`
     }
 
     @media (min-width: 1500px){
-        width: 40%;
+        width: 50%;
     }
 `
 
